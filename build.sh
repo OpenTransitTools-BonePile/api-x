@@ -16,3 +16,10 @@ echo "#                                            #"
 echo "##############################################"
 
 java -jar lib/swagger-codegen-cli.jar help
+
+langs = java python
+for l in langs
+do
+   mkdir
+   echo $l
+done
