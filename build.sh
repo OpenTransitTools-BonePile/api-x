@@ -15,7 +15,9 @@ echo "# java -jar lib/swagger-codegen-cli.jar help #"
 echo "#                                            #"
 echo "##############################################"
 
-langs=(java python)
+echo "https://github.com/swagger-api/swagger-codegen?ref=producthunt#overview"
+
+langs=(java javascript python html dynamic-html)
 for l in "${langs[@]}"
 do
    mkdir -p bindings/$l
