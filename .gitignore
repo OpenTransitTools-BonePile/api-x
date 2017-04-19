@@ -93,3 +93,8 @@ nohup.out
 gtfsdb.db.bkup
 x
 .pydevproject
+
+# Java Package Files #
+*.jar
+*.war
+*.ear
