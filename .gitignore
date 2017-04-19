@@ -1,21 +1,95 @@
-*.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+ott.leaflet.*
+ott.openlayers.*
+otp_report.html
+build-config.json
+router-config.json
+lucene
+*.swagger*
+*.old
+*-old
+*.urls
+*.v
+*.log
+*.iml
+*.tmp
+*.obj
+*.out
+*.osm
+*.pid
+call/
+call-test/
+prod/
+test/
+ned/
+tmp/
+cache/
+osmosis/
+.git/
+tests/
+*~
+[a-z].py
+*.py[cod]
+.settings
+COMMIT_EDITMSG
+*.zip
+*.old
 *.jar
-*.war
-*.ear
+.*#
+.#*
+*#
+#*
+.idea
+.idea/*
+*.iml
+.DS_Store
+c:/
 
-# exclude jar for gradle wrapper
-!gradle/wrapper/*.jar
+# C extensions
+*.so
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-# build files
-**/target
-target
-.gradle
+# Packages
+*.egg
+*.egg-info
+dist
 build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+.*~
+*.bak
+*.db
+*.sqlite
+*.db-journal
+nohup.out
+[a-z].json
+*.all.js
+*.all.css
+*.min.js
+*.min.css
+.git
+.git/FETCH_HEAD
+gtfsdb.db.bkup
+x
+.pydevproject
