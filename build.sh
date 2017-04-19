@@ -15,11 +15,10 @@ echo "# java -jar lib/swagger-codegen-cli.jar help #"
 echo "#                                            #"
 echo "##############################################"
 
-java -jar lib/swagger-codegen-cli.jar help
-
-langs = java python
-for l in langs
+langs=(java python)
+for l in "${langs[@]}"
 do
-   mkdir
-   echo $l
+   mkdir -p bindings/$l
+   echo java -jar lib/swagger-codegen-cli.jar generate -i swagger.yaml -l $l -o bindings/$l
+   java -jar lib/swagger-codegen-cli.jar generate -i swagger.yaml -l $l -o bindings/$l
 done
