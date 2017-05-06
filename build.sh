@@ -17,10 +17,10 @@ echo "##############################################"
 
 echo "https://github.com/swagger-api/swagger-codegen?ref=producthunt#overview"
 
-langs=(java javascript python html dynamic-html)
+langs=(java javascript python python-flask html)
 for l in "${langs[@]}"
 do
    mkdir -p bindings/$l
    echo java -jar lib/swagger-codegen-cli.jar generate -i swagger.yaml -l $l -o bindings/$l
-   java -jar lib/swagger-codegen-cli.jar generate -i swagger.yaml -l $l -o bindings/$l
+   java -jar lib/swagger-codegen-cli.jar generate -i swagger.yaml -l $l -o bindings/$l > codegen.log
 done
