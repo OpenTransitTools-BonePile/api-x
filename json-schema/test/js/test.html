@@ -1,0 +1,24 @@
+<script src="tv4.js"></script>
+
+<script>
+function test1()
+{
+    tv4.addSchema("http://example.com/schema", {
+        "definitions": {
+            "arrayItem": {"type": "boolean"}
+        }
+    });
+    var schema = {
+        "type": "array",
+        "items": {"$ref": "http://example.com/schema#/definitions/arrayItem" }
+    };
+    var data1 = [true, false, true];
+    var data2 = [1, 2, 3];
+
+    alert("data 1: " + tv4.validate(data1, schema)); // true
+    alert("data 2: " + tv4.validate(data2, schema)); // false
+}
+</script>
+
+
+<a href="#" onclick="test1()">RUN</a>
