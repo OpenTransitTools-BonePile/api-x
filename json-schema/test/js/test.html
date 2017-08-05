@@ -11,19 +11,19 @@ fetch("../../stops.json")
     .then(response => response.json())
     .then(json => (stops = json));
 
-console.log("hey");
-
 
 function testAgencies()
 {
     tv4.addSchema('xxx', agencies);
     var data1 = {'name':'poo'};
-    var data2 = [1, 2, 3];
+    var data2 = {'names':'poo'};
     var schema = agencies;
-    console.log("hey");
     console.log(schema);
-    alert("data 1: " + tv4.validate(data1, schema)); // true
-    alert("data 2: " + tv4.validate(data2, schema)); // false
+    console.log(tv4.validateResult(data1, schema, true, true));
+    console.log(tv4.validateMultiple(data1, schema, true, true));
+
+    alert("data 1: " + tv4.validate(data1, schema, true, true)); // true
+    alert("data 2: " + tv4.validate(data2, schema, true, true)); // false
 }
 </script>
 
