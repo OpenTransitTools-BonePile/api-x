@@ -12,8 +12,10 @@
             "type": "array"
         },
         "agency": {
-            "id": "/properties/agency",
-            "type": "string"
+            "$ref": "agencies.json"
+        },
+        "agencXX": {
+            "$ref": "xagencies.json"
         },
         "description": {
             "id": "/properties/description",

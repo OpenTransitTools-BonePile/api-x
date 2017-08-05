@@ -6,6 +6,10 @@ fetch("../../agencies.json")
     .then(response => response.json())
     .then(json => (agencies = json));
 
+
+//
+// https://stackoverflow.com/questions/25145160/json-schema-ref-does-not-work-for-relative-path
+//
 var stops = null;
 fetch("../../stops.json")
     .then(response => response.json())
@@ -15,9 +19,10 @@ fetch("../../stops.json")
 function testAgencies()
 {
     tv4.addSchema('xxx', agencies);
-    var data1 = {'name':'poo'};
-    var data2 = {'names':'poo'};
-    var schema = agencies;
+    //var data1 = {'name':'poo'};
+    var data1 = {'name':'poo', 'agency':{'name':'TM'}};
+    var data2 = {'name':'poo', 'agency':{'namex':'TM'}};
+    var schema = stops;
     console.log(schema);
     console.log(tv4.validateResult(data1, schema, true, true));
     console.log(tv4.validateMultiple(data1, schema, true, true));
