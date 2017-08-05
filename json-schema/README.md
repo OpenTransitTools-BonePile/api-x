@@ -26,8 +26,13 @@ Links
  Home page`
 
 
+**Tests:**
+  - cd api/json-schema
+  - python -m SimpleHTTPServer 8000
+  - http://localhost:8000/test/js/test.html
 
-Notes:
+
+**Notes:**
  1. All services have date parameter, which defaults to today.  This allows the service to show variations in the future 
  (or past).
  1. All services have limit (defaults to 10) and offset (defaults to 0)

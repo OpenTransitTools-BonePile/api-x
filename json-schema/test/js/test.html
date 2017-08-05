@@ -1,32 +1,27 @@
 <script src="tv4.js"></script>
 
-<script>
-function test1()
-{
-    tv4.addSchema("http://example.com/schema", {
-        "definitions": {
-            "arrayItem": {"type": "boolean"}
-        }
-    });
-    var schema = {
-        "type": "array",
-        "items": {"$ref": "http://example.com/schema#/definitions/arrayItem" }
-    };
-    var data1 = [true, false, true];
-    var data2 = [1, 2, 3];
+<script type="application/javascript">
+var agencies = null;
+fetch("../../agencies.json")
+    .then(response => response.json())
+    .then(json => (agencies = json));
 
-    alert("data 1: " + tv4.validate(data1, schema)); // true
-    alert("data 2: " + tv4.validate(data2, schema)); // false
-}
+var stops = null;
+fetch("../../stops.json")
+    .then(response => response.json())
+    .then(json => (stops = json));
+
+console.log("hey");
 
 
 function testAgencies()
 {
-    tv4.addSchema("../../agencies.json");
-    var data1 = [true, false, true];
+    tv4.addSchema('xxx', agencies);
+    var data1 = {'name':'poo'};
     var data2 = [1, 2, 3];
-    var schema = {};
-
+    var schema = agencies;
+    console.log("hey");
+    console.log(schema);
     alert("data 1: " + tv4.validate(data1, schema)); // true
     alert("data 2: " + tv4.validate(data2, schema)); // false
 }
