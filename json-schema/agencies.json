@@ -1,101 +1,39 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "http://opentransittools.com/stop.json",
-
+    "id": "http://opentransittools.com/agencies.json",
 
     "properties": {
-        "agency": {
-            "id": "/properties/agency",
+        "id": {
+            "id": "/properties/id",
             "type": "string"
-        },
-
-        "lat": {
-            "id": "/properties/lat",
-            "type": "number"
-        },
-        "lon": {
-            "id": "/properties/lon",
-            "type": "number"
         },
         "name": {
             "id": "/properties/name",
             "type": "string"
         },
-        "order": {
-            "id": "/properties/order",
-            "type": "integer"
-        },
-        "position": {
-            "id": "/properties/position",
+        "phone": {
+            "id": "/properties/phone",
             "type": "string"
         },
-        "stop_id": {
-            "id": "/properties/stop_id",
+        "email": {
+            "id": "/properties/email",
             "type": "string"
         },
         "url": {
             "id": "/properties/url",
             "type": "string"
         },
-
-        "routes": {
-            "id": "/properties/routes",
-            "items": {
-                "id": "/properties/routes/items",
-                "properties": {
-                    "direction_0": {
-                        "id": "/properties/routes/items/properties/direction_0",
-                        "type": "string"
-                    },
-                    "direction_1": {
-                        "id": "/properties/routes/items/properties/direction_1",
-                        "type": "string"
-                    },
-                    "alerts": {
-                        "id": "/properties/routes/items/properties/alerts",
-                        "items": {},
-                        "type": "array"
-                    },
-                    "has_alerts": {
-                        "id": "/properties/routes/items/properties/has_alerts",
-                        "type": "boolean"
-                    },
-                    "has_errors": {
-                        "id": "/properties/routes/items/properties/has_errors",
-                        "type": "boolean"
-                    },
-                    "name": {
-                        "id": "/properties/routes/items/properties/name",
-                        "type": "string"
-                    },
-                    "route_id": {
-                        "id": "/properties/routes/items/properties/route_id",
-                        "type": "string"
-                    },
-                    "short_name": {
-                        "id": "/properties/routes/items/properties/short_name",
-                        "type": "string"
-                    },
-                    "sort_order": {
-                        "id": "/properties/routes/items/properties/sort_order",
-                        "type": "integer"
-                    },
-                    "status_code": {
-                        "id": "/properties/routes/items/properties/status_code",
-                        "type": "integer"
-                    },
-                    "status_message": {
-                        "id": "/properties/routes/items/properties/status_message",
-                        "type": "null"
-                    },
-                    "url": {
-                        "id": "/properties/routes/items/properties/url",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "type": "array"
+        "fareUrl": {
+            "id": "/properties/fareUrl",
+            "type": "string"
+        },
+        "timezone": {
+            "id": "/properties/timezone",
+            "type": "string"
+        },
+        "lang": {
+            "id": "/properties/lang",
+            "type": "string"
         }
     }
 }

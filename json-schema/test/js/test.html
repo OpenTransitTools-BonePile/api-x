@@ -18,7 +18,19 @@ function test1()
     alert("data 1: " + tv4.validate(data1, schema)); // true
     alert("data 2: " + tv4.validate(data2, schema)); // false
 }
+
+
+function testAgencies()
+{
+    tv4.addSchema("../../agencies.json");
+    var data1 = [true, false, true];
+    var data2 = [1, 2, 3];
+    var schema = {};
+
+    alert("data 1: " + tv4.validate(data1, schema)); // true
+    alert("data 2: " + tv4.validate(data2, schema)); // false
+}
 </script>
 
 
-<a href="#" onclick="test1()">RUN</a>
+<a href="#" onclick="testAgencies()">Test Agencies Schema</a>
