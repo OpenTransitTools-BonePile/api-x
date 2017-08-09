@@ -9,5 +9,6 @@ def get_json(path):
     return schema
 
 
-s = get_json('../../agencies.json')
-validate({"id": "TRIMET", "name": "TriMet", "email": 5}, s)
+#s = get_json('../../agencies.json')
+s = get_json('../../stops.json')
+validate({"stop_id": "YO", "agency": {"id": "TRIMET", "name": "TriMet", "email": "hi"}}, s)
