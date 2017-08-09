@@ -35,5 +35,6 @@
             "id": "/properties/lang",
             "type": "string"
         }
-    }
+    },
+    "required": ["id", "name"]
 }

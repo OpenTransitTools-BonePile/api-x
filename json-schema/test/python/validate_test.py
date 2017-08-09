@@ -1,26 +1,13 @@
-# coding: utf-8
+import json
+from jsonschema import validate
+from jsonschema import Draft4Validator
 
-"""
-"""
 
-import sys
-from setuptools import setup, find_packages
+def get_json(path):
+    with open(path) as data_file:
+        schema = json.load(data_file)
+    return schema
 
-NAME = "json-validate"
-VERSION = "1.0.0"
-REQUIRES = ["jsonschema"]
 
-setup(
-    name=NAME,
-    version=VERSION,
-    description="Simple API",
-    author_email="",
-    url="",
-    keywords=["Swagger", "Simple API"],
-    install_requires=REQUIRES,
-    packages=find_packages(),
-    include_package_data=True,
-    long_description="""\
-    A simple API to learn how to write OpenAPI Specification
-    """
-)
+s = get_json('../../agencies.json')
+validate({"id": "TRIMET", "name": "TriMet", "email": 5}, s)
