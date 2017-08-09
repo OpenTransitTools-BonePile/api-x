@@ -12,7 +12,7 @@
             "type": "array"
         },
         "agency": {
-            "$ref": "agencies.json"
+            "$ref": "agencies.json#"
         },
         "description": {
             "id": "/properties/description",
@@ -67,5 +67,5 @@
             "type": "string"
         }
     },
-    "required": ["agency", "stop_id"]
+    "required": ["stop_id"]
 }
