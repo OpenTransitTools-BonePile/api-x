@@ -27,9 +27,13 @@ Links
 
 
 **Tests:**
-  - cd api/json-schema
-  - python -m SimpleHTTPServer 8000
-  - http://localhost:8000/test/js/test.html
+  - cd api # <project root>
+  - python -m SimpleHTTPServer 80
+  - http://localhost/test/js/test.html
+  - -- OR --
+  - cd json-schema/test/python
+  - buildout
+  - sudo bin/python validate_test.py 
 
 
 **Notes:**

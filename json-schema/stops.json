@@ -12,7 +12,7 @@
             "type": "array"
         },
         "agency": {
-            "$ref": "agencies.json#"
+            "$ref": "json-schema/agencies.json#"
         },
         "description": {
             "id": "/properties/description",

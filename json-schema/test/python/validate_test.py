@@ -17,13 +17,7 @@ def test_agencies():
 def test_stops():
     s = get_json('../../stops.json')
     validate({"stop_id": "YO", "agency": {"id": "TRIMET", "name": "TriMet", "email": "hi"}}, s)
+    validate({"stop_id":    4, "agency": {"id": "TRIMET", "name": "TriMet", "email": "hi"}}, s)
 
 
-def test():
-    s = get_json('../../f.json')
-    validate({
-        "residential_address": {"street_address": "2", "name": "TriMet", "email": "hi"},
-        "office_address": {"street_address": "2", "city": "TriMet", "state": "hi"}
-    }, s)
-
-test()
+test_stops()
