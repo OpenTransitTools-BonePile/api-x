@@ -23,7 +23,7 @@ def test():
     s = get_json('../../f.json')
     validate({
         "residential_address": {"street_address": "2", "name": "TriMet", "email": "hi"},
-        "office_address": {"street_address": 2, "name": "TriMet", "email": "hi"}
+        "office_address": {"street_address": "2", "city": "TriMet", "state": "hi"}
     }, s)
 
 test()
