@@ -30,9 +30,10 @@ function test(schema, valid_data, bad_data)
 {
     tv4.addSchema('xxx', schema);
     var v1 = tv4.validateResult(valid_data, schema, true, true);
-    var v2 = tv4.validateMultiple(bad_data, schema, true, true);
+    var v2 = tv4.validateResult(bad_data, schema, true, true);
     // NOTE: think this validate method just returns true/false
     // var v1 = tv4.validate(data1, schema, true, true)
+    // var v2 = tv4.validateMultiple(bad_data, schema, true, true);
     console.log(schema);
     console.log(v1);
     console.log(v2);

@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "http://opentransittools.com/stop.json",
+    "id": "http://localhost/stop.json",
 
     "properties": {
         "amenities": {
