@@ -5,7 +5,8 @@ fi
 
 if [ ! -f "lib/swagger-codegen-cli.jar" ];
 then
-    wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/2.2.2/swagger-codegen-cli-2.2.2.jar -O lib/swagger-codegen-cli.jar
+    ver=2.2.3
+    wget http://central.maven.org/maven2/io/swagger/swagger-codegen-cli/$ver/swagger-codegen-cli-$ver.jar -O lib/swagger-codegen-cli.jar
 fi
 
 echo "##############################################"
