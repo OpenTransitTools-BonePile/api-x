@@ -28,7 +28,7 @@ function msg(validObj, defVal="is valid")
 
 function test(schema, valid_data, bad_data)
 {
-    tv4.addSchema('xxx', schema);
+    tv4.addSchema('#', schema);
     var v1 = tv4.validateResult(valid_data, schema, true, true);
     var v2 = tv4.validateResult(bad_data, schema, true, true);
     // NOTE: think this validate method just returns true/false
