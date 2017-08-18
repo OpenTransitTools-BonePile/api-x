@@ -14,11 +14,8 @@
         "name": {
             "type": "string"
         },
-        "amenities": {
-            "items": {
-                "type": "string"
-            },
-            "type": "array"
+        "sort_order": {
+            "type": "integer"
         }
     }
 }

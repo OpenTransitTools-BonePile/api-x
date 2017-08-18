@@ -58,6 +58,81 @@
                 }
             }
         },
+
+
+        "/routes": {
+            "get": {
+                "description": "returns all routes from the system that the user has access to",
+                "operationId": "list routes",
+                "parameters": [
+                    {
+                        "$ref": "./parameters.json#/agencyIdParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/dateParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/offsetParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/limitParam"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "route list response",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "./Route.json"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "./Error.json"
+                        }
+                    }
+                }
+            }
+        },
+        "/routes/{route_id}": {
+            "get": {
+                "description": "returns an array of routes, with a route_id filter (often the array will only have 1 element)",
+                "operationId": "find a route(s) via route_id\ninclude agency_id to make make sure you have a unique route",
+                "parameters": [
+                    {
+                        "$ref": "./parameters.json#/routeIdParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/dateParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/agencyIdParam"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "route response",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "./Route.json"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "./Error.json"
+                        }
+                    }
+                }
+            }
+        },
+
+
         "/stops": {
             "get": {
                 "description": "returns all stops from the system that the user has access to",
@@ -65,6 +140,9 @@
                 "parameters": [
                     {
                         "$ref": "./parameters.json#/agencyIdParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/dateParam"
                     },
                     {
                         "$ref": "./parameters.json#/offsetParam"
@@ -101,6 +179,9 @@
                         "$ref": "./parameters.json#/stopIdParam"
                     },
                     {
+                        "$ref": "./parameters.json#/dateParam"
+                    },
+                    {
                         "$ref": "./parameters.json#/agencyIdParam"
                     }
                 ],
@@ -123,7 +204,6 @@
                 }
             }
         },
-
         "/stops/{stop_id}/{agency_id}": {
             "get": {
                 "description": "returns a single stop object based on stop_id and agency_id",

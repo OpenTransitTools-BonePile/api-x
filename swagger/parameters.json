@@ -1,20 +1,4 @@
 {
-    "offsetParam": {
-        "name": "offset",
-        "in": "query",
-        "description": "to offset the starting index of the results ",
-        "required": false,
-        "type": "integer",
-        "format": "int32"
-    },
-    "limitParam": {
-        "name": "limit",
-        "in": "query",
-        "description": "maximum number of results to return (default is usually 10)",
-        "required": false,
-        "type": "integer",
-        "format": "int32"
-    },
     "stopIdParam": {
         "name": "stop_id",
         "in": "query",
@@ -35,5 +19,61 @@
         "description": "agency id",
         "required": false,
         "type": "string"
+    },
+
+
+    "withRoutesParam": {
+        "name": "with_routes",
+        "in": "query",
+        "description": "return routes related to the main object",
+        "required": false,
+        "type": "boolean"
+    },
+
+
+    "dateParam": {
+        "name": "date",
+        "in": "query",
+        "description": "active date, ala seconds since the epoch (defaults to today)",
+        "required": false,
+        "type": "integer"
+    },
+    "monthParam": {
+        "name": "date",
+        "in": "query",
+        "description": "",
+        "required": false,
+        "type": "integer"
+    },
+    "dayParam": {
+        "name": "date",
+        "in": "query",
+        "description": "",
+        "required": false,
+        "type": "integer"
+    },
+    "yearParam": {
+        "name": "date",
+        "in": "query",
+        "description": "",
+        "required": false,
+        "type": "integer"
+    },
+
+    "offsetParam": {
+        "name": "offset",
+        "in": "query",
+        "description": "to offset the starting index of the results ",
+        "required": false,
+        "type": "integer",
+        "format": "int32"
+    },
+    "limitParam": {
+        "name": "limit",
+        "in": "query",
+        "description": "maximum number of results to return (default is usually 10)",
+        "required": false,
+        "type": "integer",
+        "format": "int32"
     }
 }
