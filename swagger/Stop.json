@@ -15,10 +15,10 @@
             "type": "string"
         },
         "amenities": {
+            "type": "array",
             "items": {
                 "type": "string"
-            },
-            "type": "array"
+            }
         }
     }
 }

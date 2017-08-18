@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "required": [
+        "stop"
+    ],
+    "properties": {
+        "stop" : {
+          "$ref": "./Stop.json"
+        },
+        "order": {
+            "type": "integer"
+        },
+        "distance": {
+            "type": "integer"
+        }
+    }
+}

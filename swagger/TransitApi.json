@@ -27,6 +27,7 @@
         "application/json"
     ],
     "paths": {
+
         "/agencies": {
             "get": {
                 "description": "Returns all agencies loaded in the system",
@@ -59,6 +60,37 @@
             }
         },
 
+        "/directions": {
+            "get": {
+                "description": "Returns all agencies loaded in the system",
+                "operationId": "list agencies",
+                "parameters": [
+                    {
+                        "$ref": "./parameters.json#/offsetParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/limitParam"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "list of available agencies",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "./RouteStop.json"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "./Error.json"
+                        }
+                    }
+                }
+            }
+        },
 
         "/routes": {
             "get": {
