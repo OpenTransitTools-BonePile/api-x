@@ -1,19 +1,18 @@
 {
-  "type": "object",
-  "allOf": [
-    {
-      "$ref": "./Agency.json"
-    },
-    {
-      "required": [
+    "type": "object",
+    "required": [
+        "id",
         "name"
-      ],
-      "properties": {
-        "description": {
-          "type": "integer",
-          "format": "int64"
+    ],
+    "properties": {
+        "agency" : {
+          "$ref": "./Agency.json"
+        },
+        "id": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
         }
-      }
     }
-  ]
 }

@@ -23,7 +23,8 @@ echo "https://github.com/swagger-api/swagger-codegen?ref=producthunt#overview"
 
 swagger_input=swagger/TransitApi.json
 
-langs=(java javascript python python-flask html html2)
+#langs=(java javascript python python-flask html html2)
+langs=(html html2)
 for l in "${langs[@]}"
 do
    mkdir -p bindings/$l

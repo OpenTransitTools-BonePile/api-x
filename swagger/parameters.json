@@ -33,7 +33,7 @@
         "name": "agency_id",
         "in": "query",
         "description": "agency id",
-        "required": true,
+        "required": false,
         "type": "string"
     }
 }

@@ -27,10 +27,10 @@
         "application/json"
     ],
     "paths": {
-        "/pets": {
+        "/agencies": {
             "get": {
-                "description": "Returns all pets from the system that the user has access to\n",
-                "operationId": "findPets",
+                "description": "Returns all agencies loaded in the system",
+                "operationId": "list agencies",
                 "parameters": [
                     {
                         "$ref": "./parameters.json#/offsetParam"
@@ -41,7 +41,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "pet response",
+                        "description": "list of available agencies",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -58,25 +58,89 @@
                 }
             }
         },
-        "/pets/{id}": {
+        "/stops": {
             "get": {
-                "description": "Returns a user based on a single ID, if the user does not have access to the pet",
-                "operationId": "find pet by id",
+                "description": "returns all stops from the system that the user has access to",
+                "operationId": "list stops",
                 "parameters": [
                     {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of pet to fetch",
-                        "required": true,
-                        "type": "integer",
-                        "format": "int64"
+                        "$ref": "./parameters.json#/agencyIdParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/offsetParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/limitParam"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "pet response",
+                        "description": "stop list response",
                         "schema": {
-                            "$ref": "./Agency.json"
+                            "type": "array",
+                            "items": {
+                                "$ref": "./Stop.json"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "./Error.json"
+                        }
+                    }
+                }
+            }
+        },
+        "/stops/{stop_id}": {
+            "get": {
+                "description": "returns an array of stops, with a stop_id filter (often the array will only have 1 element)",
+                "operationId": "find stop(s) by stop_id\nneed to include agency_id to make make sure you have a unique stop",
+                "parameters": [
+                    {
+                        "$ref": "./parameters.json#/stopIdParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/agencyIdParam"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "stop response",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "./Stop.json"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "./Error.json"
+                        }
+                    }
+                }
+            }
+        },
+
+        "/stops/{stop_id}/{agency_id}": {
+            "get": {
+                "description": "returns a single stop object based on stop_id and agency_id",
+                "operationId": "find a single stop by stop_id and agency_id",
+                "parameters": [
+                    {
+                        "$ref": "./parameters.json#/stopIdParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/agencyIdParam"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "single stop response",
+                        "schema": {
+                            "$ref": "./Stop.json"
                         }
                     },
                     "default": {
