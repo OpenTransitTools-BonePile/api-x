@@ -2,6 +2,24 @@
     "$schema": "http://json-schema.org/draft-04/schema#",
     "id": "http://opentransittools.com/stop.json",
     "definitions": {},
+
+        "directions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": "string",
+                    "dir": "integer",
+                    "stops": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "./RouteStop.json"
+                        }
+                    }
+                }
+            }
+        }
+
     "properties": {
         "amenities": {
             "id": "/properties/amenities",

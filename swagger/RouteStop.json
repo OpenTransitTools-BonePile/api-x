@@ -1,9 +1,16 @@
 {
     "type": "object",
     "required": [
-        "stop"
+        "stop",
+        "order"
     ],
     "properties": {
+        "agency" : {
+            "$ref": "./Agency.json"
+        },
+        "route" : {
+          "$ref": "./Route.json"
+        },
         "stop" : {
           "$ref": "./Stop.json"
         },
@@ -12,6 +19,9 @@
         },
         "distance": {
             "type": "integer"
+        },
+        "headsign": {
+            "type": "string"
         }
     }
 }

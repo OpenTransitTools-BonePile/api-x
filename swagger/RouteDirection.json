@@ -11,20 +11,16 @@
         "route": {
             "$ref": "./Route.json"
         },
-        "directions": {
+        "direction_name": {
+            "type": "string"
+        },
+        "destination": {
+            "type": "string"
+        },
+        "stops": {
             "type": "array",
             "items": {
-                "type": "object",
-                "properties": {
-                    "name": "string",
-                    "dir": "integer",
-                    "stops": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "./RouteStop.json"
-                        }
-                    }
-                }
+                "$ref": "./RouteStop.json"
             }
         }
     }

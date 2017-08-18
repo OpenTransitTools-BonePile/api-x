@@ -3,7 +3,7 @@
     "info": {
         "version": "0.1.0",
         "title": "Transit API",
-        "description": "A transit stop, route and schedule api in swagger-2.0 specification (tbd openapi 3.0)",
+        "description": "A transit stop, route and schedule api in swagger-2.0 specification\n(tbd upgrade to openapi 3.0 asap)",
         "termsOfService": "http://opentransittools.com/api/blob/master/README.md#terms",
         "contact": {
             "name": "OpenTransitTools",
@@ -60,16 +60,16 @@
             }
         },
 
-        "/directions": {
+        "/route_directions/{route_id}/{agency_id}": {
             "get": {
-                "description": "Returns all agencies loaded in the system",
+                "description": "Returns all route directions for the given route in the system",
                 "operationId": "list agencies",
                 "parameters": [
                     {
-                        "$ref": "./parameters.json#/offsetParam"
+                        "$ref": "./parameters.json#/agencyIdParam"
                     },
                     {
-                        "$ref": "./parameters.json#/limitParam"
+                        "$ref": "./parameters.json#/routeIdParam"
                     }
                 ],
                 "responses": {
@@ -78,7 +78,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "./RouteStop.json"
+                                "$ref": "./RouteDirection.json"
                             }
                         }
                     },
@@ -135,13 +135,13 @@
                 "operationId": "find a route(s) via route_id\ninclude agency_id to make make sure you have a unique route",
                 "parameters": [
                     {
+                        "$ref": "./parameters.json#/agencyIdParam"
+                    },
+                    {
                         "$ref": "./parameters.json#/routeIdParam"
                     },
                     {
                         "$ref": "./parameters.json#/dateParam"
-                    },
-                    {
-                        "$ref": "./parameters.json#/agencyIdParam"
                     }
                 ],
                 "responses": {
