@@ -31,7 +31,7 @@
         "/agencies": {
             "get": {
                 "description": "Returns all agencies loaded in the system",
-                "operationId": "list agencies",
+                "operationId": "a1 list agencies",
                 "parameters": [
                     {
                         "$ref": "./parameters.json#/offsetParam"
@@ -60,10 +60,85 @@
             }
         },
 
+
+        "/routes": {
+            "get": {
+                "description": "returns all routes from the system that the user has access to",
+                "operationId": "r1 list routes",
+                "parameters": [
+                    {
+                        "$ref": "./parameters.json#/agencyIdParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/dateParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/offsetParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/limitParam"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "route list response",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "./Route.json"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "./Error.json"
+                        }
+                    }
+                }
+            }
+        },
+
+        "/routes/{route_id}": {
+            "get": {
+                "description": "returns an array of routes, with a route_id filter (often the array will only have 1 element)",
+                "operationId": "r2 find a route(s) via route_id\ninclude agency_id to make make sure you have a unique route",
+                "parameters": [
+                    {
+                        "$ref": "./parameters.json#/agencyIdParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/routeIdParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/dateParam"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "route response",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "./Route.json"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "./Error.json"
+                        }
+                    }
+                }
+            }
+        },
+
+
         "/route_directions/{route_id}/{agency_id}": {
             "get": {
                 "description": "Returns all route directions for the given route in the system",
-                "operationId": "list agencies",
+                "operationId": "r3 list agencies",
                 "parameters": [
                     {
                         "$ref": "./parameters.json#/agencyIdReqParam"
@@ -98,7 +173,7 @@
         "/route_stops/{route_id}/{agency_id}": {
             "get": {
                 "description": "Returns all stops serving given route in the system",
-                "operationId": "list agencies",
+                "operationId": "r4: list stops serving a route (note that there's also route direction info attached)",
                 "parameters": [
                     {
                         "$ref": "./parameters.json#/agencyIdReqParam"
@@ -137,83 +212,10 @@
         },
 
 
-        "/routes": {
-            "get": {
-                "description": "returns all routes from the system that the user has access to",
-                "operationId": "list routes",
-                "parameters": [
-                    {
-                        "$ref": "./parameters.json#/agencyIdParam"
-                    },
-                    {
-                        "$ref": "./parameters.json#/dateParam"
-                    },
-                    {
-                        "$ref": "./parameters.json#/offsetParam"
-                    },
-                    {
-                        "$ref": "./parameters.json#/limitParam"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "route list response",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "./Route.json"
-                            }
-                        }
-                    },
-                    "default": {
-                        "description": "unexpected error",
-                        "schema": {
-                            "$ref": "./Error.json"
-                        }
-                    }
-                }
-            }
-        },
-        "/routes/{route_id}": {
-            "get": {
-                "description": "returns an array of routes, with a route_id filter (often the array will only have 1 element)",
-                "operationId": "find a route(s) via route_id\ninclude agency_id to make make sure you have a unique route",
-                "parameters": [
-                    {
-                        "$ref": "./parameters.json#/agencyIdParam"
-                    },
-                    {
-                        "$ref": "./parameters.json#/routeIdParam"
-                    },
-                    {
-                        "$ref": "./parameters.json#/dateParam"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "route response",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "./Route.json"
-                            }
-                        }
-                    },
-                    "default": {
-                        "description": "unexpected error",
-                        "schema": {
-                            "$ref": "./Error.json"
-                        }
-                    }
-                }
-            }
-        },
-
-
         "/stops": {
             "get": {
                 "description": "returns all stops from the system that the user has access to",
-                "operationId": "list stops",
+                "operationId": "s1: list stops",
                 "parameters": [
                     {
                         "$ref": "./parameters.json#/agencyIdParam"
@@ -250,7 +252,7 @@
         "/stops/{stop_id}": {
             "get": {
                 "description": "returns an array of stops, with a stop_id filter (often the array will only have 1 element)",
-                "operationId": "find stop(s) by stop_id\nneed to include agency_id to make make sure you have a unique stop",
+                "operationId": "s2: find stop(s) by stop_id\nneed to include agency_id to make make sure you have a unique stop",
                 "parameters": [
                     {
                         "$ref": "./parameters.json#/agencyIdParam"
@@ -284,7 +286,7 @@
         "/stops/{stop_id}/{agency_id}": {
             "get": {
                 "description": "returns a single stop object based on stop_id and agency_id",
-                "operationId": "find a single stop by stop_id and agency_id",
+                "operationId": "s3: find a single stop by stop_id and agency_id",
                 "parameters": [
                     {
                         "$ref": "./parameters.json#/agencyIdReqParam"
