@@ -20,6 +20,13 @@
         "required": false,
         "type": "string"
     },
+    "agencyIdReqParam": {
+        "name": "agency_id",
+        "in": "query",
+        "description": "required agency id param",
+        "required": true,
+        "type": "string"
+    },
 
 
     "withRoutesParam": {

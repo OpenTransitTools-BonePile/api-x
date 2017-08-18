@@ -66,7 +66,7 @@
                 "operationId": "list agencies",
                 "parameters": [
                     {
-                        "$ref": "./parameters.json#/agencyIdParam"
+                        "$ref": "./parameters.json#/agencyIdReqParam"
                     },
                     {
                         "$ref": "./parameters.json#/routeIdParam"
@@ -208,13 +208,13 @@
                 "operationId": "find stop(s) by stop_id\nneed to include agency_id to make make sure you have a unique stop",
                 "parameters": [
                     {
+                        "$ref": "./parameters.json#/agencyIdParam"
+                    },
+                    {
                         "$ref": "./parameters.json#/stopIdParam"
                     },
                     {
                         "$ref": "./parameters.json#/dateParam"
-                    },
-                    {
-                        "$ref": "./parameters.json#/agencyIdParam"
                     }
                 ],
                 "responses": {
@@ -242,10 +242,10 @@
                 "operationId": "find a single stop by stop_id and agency_id",
                 "parameters": [
                     {
-                        "$ref": "./parameters.json#/stopIdParam"
+                        "$ref": "./parameters.json#/agencyIdReqParam"
                     },
                     {
-                        "$ref": "./parameters.json#/agencyIdParam"
+                        "$ref": "./parameters.json#/stopIdParam"
                     }
                 ],
                 "responses": {
