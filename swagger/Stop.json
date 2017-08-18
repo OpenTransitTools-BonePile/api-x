@@ -2,7 +2,7 @@
   "type": "object",
   "allOf": [
     {
-      "$ref": "./Pet.json"
+      "$ref": "./Agency.json"
     },
     {
       "required": [
