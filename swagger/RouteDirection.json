@@ -1,8 +1,8 @@
 {
     "type": "object",
     "required": [
-        "id",
-        "name"
+        "route",
+        "directions"
     ],
     "properties": {
         "agency" : {
@@ -11,13 +11,13 @@
         "route": {
             "$ref": "./Route.json"
         },
-        "direction": {
+        "directions": {
             "type": "array",
             "items": {
                 "type": "object",
                 "properties": {
                     "name": "string",
-                    "dir": "interger",
+                    "dir": "integer",
                     "stops": {
                         "type": "array",
                         "items": {
