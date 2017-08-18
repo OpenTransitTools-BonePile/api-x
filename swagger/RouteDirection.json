@@ -11,7 +11,7 @@
         "route": {
             "$ref": "./Route.json"
         },
-        "direction_name": {
+        "directionName": {
             "type": "string"
         },
         "destination": {

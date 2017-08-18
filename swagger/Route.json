@@ -14,7 +14,7 @@
         "name": {
             "type": "string"
         },
-        "sort_order": {
+        "sortOrder": {
             "type": "integer"
         }
     }
