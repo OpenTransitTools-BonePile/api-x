@@ -33,10 +33,10 @@
                 "operationId": "findPets",
                 "parameters": [
                     {
-                        "$ref": "./parameters.json#/tagsParam"
+                        "$ref": "./parameters.json#/offsetParam"
                     },
                     {
-                        "$ref": "./parameters.json#/limitsParam"
+                        "$ref": "./parameters.json#/limitParam"
                     }
                 ],
                 "responses": {

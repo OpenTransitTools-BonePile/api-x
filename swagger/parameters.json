@@ -1,21 +1,39 @@
 {
-  "tagsParam": {
-    "name": "tags",
-    "in": "query",
-    "description": "tags to filter by",
-    "required": false,
-    "type": "array",
-    "collectionFormat": "csv",
-    "items": {
-      "type": "string"
+    "offsetParam": {
+        "name": "offset",
+        "in": "query",
+        "description": "to offset the starting index of the results ",
+        "required": false,
+        "type": "integer",
+        "format": "int32"
+    },
+    "limitParam": {
+        "name": "limit",
+        "in": "query",
+        "description": "maximum number of results to return (default is usually 10)",
+        "required": false,
+        "type": "integer",
+        "format": "int32"
+    },
+    "stopIdParam": {
+        "name": "stop_id",
+        "in": "query",
+        "description": "stop id",
+        "required": true,
+        "type": "string"
+    },
+    "routeIdParam": {
+        "name": "route_id",
+        "in": "query",
+        "description": "route id",
+        "required": true,
+        "type": "string"
+    },
+    "agencyIdParam": {
+        "name": "agency_id",
+        "in": "query",
+        "description": "agency id",
+        "required": true,
+        "type": "string"
     }
-  },
-  "limitsParam": {
-    "name": "limit",
-    "in": "query",
-    "description": "maximum number of results to return",
-    "required": false,
-    "type": "integer",
-    "format": "int32"
-  }
 }
