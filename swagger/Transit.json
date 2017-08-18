@@ -61,14 +61,14 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "Pet.json"
+                "$ref": "./Pet.json"
               }
             }
           },
           "default": {
             "description": "unexpected error",
             "schema": {
-              "$ref": "#/definitions/ErrorModel"
+              "$ref": "./Error.json"
             }
           }
         }
@@ -94,13 +94,13 @@
           "200": {
             "description": "pet response",
             "schema": {
-              "$ref": "#/definitions/Pet"
+              "$ref": "./Pet.json"
             }
           },
           "default": {
             "description": "unexpected error",
             "schema": {
-              "$ref": "#/definitions/ErrorModel"
+              "$ref": "./Error.json"
             }
           }
         }
@@ -130,13 +130,13 @@
           "200": {
             "description": "pet response",
             "schema": {
-              "$ref": "#/definitions/Pet"
+              "$ref": "Pet.json"
             }
           },
           "default": {
             "description": "unexpected error",
             "schema": {
-              "$ref": "#/definitions/ErrorModel"
+              "$ref": "Error.json"
             }
           }
         }
@@ -161,7 +161,7 @@
           "default": {
             "description": "unexpected error",
             "schema": {
-              "$ref": "#/definitions/ErrorModel"
+              "$ref": "./Error.json"
             }
           }
         }
@@ -169,51 +169,16 @@
     }
   },
   "definitions": {
-    "Pet": {
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/NewPet"
-        },
-        {
-          "required": [
-            "id"
-          ],
-          "properties": {
-            "id": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        }
-      ]
-    },
     "NewPet": {
       "type": "object",
       "required": [
-        "name"
+        "namxe"
       ],
       "properties": {
-        "name": {
+        "namxe": {
           "type": "string"
         },
         "tag": {
-          "type": "string"
-        }
-      }
-    },
-    "ErrorModel": {
-      "type": "object",
-      "required": [
-        "code",
-        "message"
-      ],
-      "properties": {
-        "code": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "message": {
           "type": "string"
         }
       }

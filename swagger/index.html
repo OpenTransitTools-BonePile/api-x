@@ -695,6 +695,47 @@ margin-bottom: 20px;
   <script>
     // Script section to load models into a JS Var
     var defs = {}
+            defs.Error = {
+  "type" : "object",
+  "required" : [ "code", "message" ],
+  "properties" : {
+    "code" : {
+      "type" : "integer",
+      "format" : "int32"
+    },
+    "message" : {
+      "type" : "string"
+    }
+  }
+};
+            defs.NewPet = {
+  "allOf" : [ {
+    "$ref" : "#/definitions/Pet"
+  }, {
+    "properties" : {
+      "description" : {
+        "type" : "integer",
+        "format" : "int64"
+      }
+    }
+  } ]
+};
+            defs.Pet = {
+  "type" : "object",
+  "required" : [ "id", "name" ],
+  "properties" : {
+    "id" : {
+      "type" : "integer",
+      "format" : "int64"
+    },
+    "name" : {
+      "type" : "string"
+    },
+    "tag" : {
+      "type" : "string"
+    }
+  }
+};
   </script>
 
   <div class="container-fluid">
@@ -793,9 +834,9 @@ public class DefaultApiExample {
     public static void main(String[] args) {
         
         DefaultApi apiInstance = new DefaultApi();
-        NewPet.json pet = ; // NewPet.json | Pet to add to the store
+        NewPet pet = ; // NewPet | Pet to add to the store
         try {
-            Pet.json result = apiInstance.addPet(pet);
+            Pet result = apiInstance.addPet(pet);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#addPet");
@@ -812,9 +853,9 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        NewPet.json pet = ; // NewPet.json | Pet to add to the store
+        NewPet pet = ; // NewPet | Pet to add to the store
         try {
-            Pet.json result = apiInstance.addPet(pet);
+            Pet result = apiInstance.addPet(pet);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#addPet");
@@ -828,12 +869,12 @@ public class DefaultApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-Default-addPet-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">NewPet.json *pet = ; // Pet to add to the store
+                              <pre class="prettyprint"><code class="language-cpp">NewPet *pet = ; // Pet to add to the store
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 [apiInstance addPetWith:pet
-              completionHandler: ^(Pet.json output, NSError* error) {
+              completionHandler: ^(Pet output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -849,7 +890,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 var api = new SwaggerPetstore.DefaultApi()
 
-var pet = ; // {NewPet.json} Pet to add to the store
+var pet = ; // {NewPet} Pet to add to the store
 
 
 var callback = function(error, data, response) {
@@ -881,11 +922,11 @@ namespace Example
         {
             
             var apiInstance = new DefaultApi();
-            var pet = new NewPet.json(); // NewPet.json | Pet to add to the store
+            var pet = new NewPet(); // NewPet | Pet to add to the store
 
             try
             {
-                Pet.json result = apiInstance.addPet(pet);
+                Pet result = apiInstance.addPet(pet);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -903,7 +944,7 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\DefaultApi();
-$pet = ; // NewPet.json | Pet to add to the store
+$pet = ; // NewPet | Pet to add to the store
 
 try {
     $result = $api_instance->addPet($pet);
@@ -920,7 +961,7 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::DefaultApi;
 
 my $api_instance = WWW::SwaggerClient::DefaultApi->new();
-my $pet = WWW::SwaggerClient::Object::NewPet.json->new(); # NewPet.json | Pet to add to the store
+my $pet = WWW::SwaggerClient::Object::NewPet->new(); # NewPet | Pet to add to the store
 
 eval { 
     my $result = $api_instance->addPet(pet => $pet);
@@ -940,7 +981,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.DefaultApi()
-pet =  # NewPet.json | Pet to add to the store
+pet =  # NewPet | Pet to add to the store
 
 try: 
     api_response = api_instance.add_pet(pet)
@@ -972,7 +1013,7 @@ $(document).ready(function() {
   "description" : "Pet to add to the store",
   "required" : true,
   "schema" : {
-    "$ref" : "#/definitions/NewPet.json"
+    "$ref" : "#/definitions/NewPet"
   }
 };
   var schema = schemaWrapper.schema;
@@ -1017,7 +1058,7 @@ $(document).ready(function() {
                                         var schemaWrapper = {
   "description" : "pet response",
   "schema" : {
-    "$ref" : "#/definitions/Pet.json"
+    "$ref" : "#/definitions/Pet"
   }
 };
                                         var schema = schemaWrapper.schema;
@@ -1060,7 +1101,7 @@ $(document).ready(function() {
                                         var schemaWrapper = {
   "description" : "unexpected error",
   "schema" : {
-    "$ref" : "#/definitions/Error.json"
+    "$ref" : "#/definitions/Error"
   }
 };
                                         var schema = schemaWrapper.schema;
@@ -1351,7 +1392,7 @@ except ApiException as e:
                                         var schemaWrapper = {
   "description" : "unexpected error",
   "schema" : {
-    "$ref" : "#/definitions/Error.json"
+    "$ref" : "#/definitions/Error"
   }
 };
                                         var schema = schemaWrapper.schema;
@@ -1430,7 +1471,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Long id = 789; // Long | ID of pet to fetch
         try {
-            Pet.json result = apiInstance.find pet by id(id);
+            Pet result = apiInstance.find pet by id(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#find pet by id");
@@ -1449,7 +1490,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         Long id = 789; // Long | ID of pet to fetch
         try {
-            Pet.json result = apiInstance.find pet by id(id);
+            Pet result = apiInstance.find pet by id(id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#find pet by id");
@@ -1468,7 +1509,7 @@ public class DefaultApiExample {
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 [apiInstance find pet by idWith:id
-              completionHandler: ^(Pet.json output, NSError* error) {
+              completionHandler: ^(Pet output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -1520,7 +1561,7 @@ namespace Example
 
             try
             {
-                Pet.json result = apiInstance.find pet by id(id);
+                Pet result = apiInstance.find pet by id(id);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1643,7 +1684,7 @@ except ApiException as e:
                                         var schemaWrapper = {
   "description" : "pet response",
   "schema" : {
-    "$ref" : "#/definitions/Pet.json"
+    "$ref" : "#/definitions/Pet"
   }
 };
                                         var schema = schemaWrapper.schema;
@@ -1686,7 +1727,7 @@ except ApiException as e:
                                         var schemaWrapper = {
   "description" : "unexpected error",
   "schema" : {
-    "$ref" : "#/definitions/Error.json"
+    "$ref" : "#/definitions/Error"
   }
 };
                                         var schema = schemaWrapper.schema;
@@ -1770,7 +1811,7 @@ public class DefaultApiExample {
         array[String] tags = ; // array[String] | tags to filter by
         Integer limit = 56; // Integer | maximum number of results to return
         try {
-            array[Pet.json] result = apiInstance.findPets(tags, limit);
+            array[Pet] result = apiInstance.findPets(tags, limit);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#findPets");
@@ -1790,7 +1831,7 @@ public class DefaultApiExample {
         array[String] tags = ; // array[String] | tags to filter by
         Integer limit = 56; // Integer | maximum number of results to return
         try {
-            array[Pet.json] result = apiInstance.findPets(tags, limit);
+            array[Pet] result = apiInstance.findPets(tags, limit);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#findPets");
@@ -1811,7 +1852,7 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
 [apiInstance findPetsWith:tags
     limit:limit
-              completionHandler: ^(array[Pet.json] output, NSError* error) {
+              completionHandler: ^(array[Pet] output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -1866,7 +1907,7 @@ namespace Example
 
             try
             {
-                array[Pet.json] result = apiInstance.findPets(tags, limit);
+                array[Pet] result = apiInstance.findPets(tags, limit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2011,7 +2052,7 @@ except ApiException as e:
   "schema" : {
     "type" : "array",
     "items" : {
-      "$ref" : "#/definitions/Pet.json"
+      "$ref" : "#/definitions/Pet"
     }
   }
 };
@@ -2055,7 +2096,7 @@ except ApiException as e:
                                         var schemaWrapper = {
   "description" : "unexpected error",
   "schema" : {
-    "$ref" : "#/definitions/Error.json"
+    "$ref" : "#/definitions/Error"
   }
 };
                                         var schema = schemaWrapper.schema;
@@ -2098,7 +2139,7 @@ except ApiException as e:
           </div>
           <div id="generator">
             <div class="content">
-              Generated 2017-08-17T16:35:04.669-07:00
+              Generated 2017-08-17T18:54:29.705-07:00
             </div>
           </div>
       </div>
@@ -2931,7 +2972,7 @@ return /******/ (function(modules) { // webpackBootstrap
 		var sourceMap = obj.sourceMap;
 	
 		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
+            // https://developer.mozilla.org/en/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
 			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
 		}
 	
@@ -2953,13 +2994,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	"use strict";
 	/*
 	 * Escapes `"` charachters from string
-	*/
+	 */
 	function escapeString(str) {
 	    return str.replace('"', '\"');
 	}
 	/*
 	 * Determines if a value is an object
-	*/
+	 */
 	function isObject(value) {
 	    var type = typeof value;
 	    return !!value && (type == 'object');
@@ -2967,32 +3008,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.isObject = isObject;
 	/*
 	 * Gets constructor name of an object.
-	 * From http://stackoverflow.com/a/332429
 	 *
-	*/
+	 */
 	function getObjectName(object) {
 	    if (object === undefined) {
 	        return '';
 	    }
-	    if (object === null) {
-	        return 'Object';
-	    }
-	    if (typeof object === 'object' && !object.constructor) {
+	    if (object === null || (typeof object === 'object' && !object.constructor)) {
 	        return 'Object';
 	    }
 	    var funcNameRegex = /function ([^(]*)/;
 	    var results = (funcNameRegex).exec((object).constructor.toString());
 	    if (results && results.length > 1) {
 	        return results[1];
-	    }
-	    else {
+	    } else {
 	        return '';
 	    }
 	}
 	exports.getObjectName = getObjectName;
 	/*
 	 * Gets type of an object. Returns "null" for null objects
-	*/
+	 */
 	function getType(object) {
 	    if (object === null) {
 	        return 'null';
@@ -3072,6 +3108,7 @@ return /******/ (function(modules) { // webpackBootstrap
 //# sourceMappingURL=json-formatter.js.map
 
 </script>
+
   <script>
 
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.JSONSchemaView = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
@@ -3239,9 +3276,9 @@ var JSONSchemaView = (function () {
         (0, _helpersJs._if)(this.schema.required && !this.isCollapsed && this.options.isBodyParam != true)(_templateObject26, this.schema.required),
         (0, _helpersJs._if)(this.schema.required && !this.isCollapsed && this.options.isBodyParam == true)(_templateObject266, this.schema.required),
 
-        (0, _helpersJs._if)(this.schema['default'] && !this.isCollapsed)(_templateObject27, this.schema['default']),
+        (0, _helpersJs._if)(this.schema['default'] && !this.isCollapsed)(_templateObject27, this.schema['default']),(0, _helpersJs._if)(!this.isCollapsed)(_templateObject29),
         (0, _helpersJs._if)(!this.isCollapsed && this.schema.pattern)(_templateObject28, this.schema.pattern),
-        (0, _helpersJs._if)(!this.isCollapsed && this.schema['enum'])(_templateObject16, this['enum'](this.schema, this.isCollapsed, this.open)), (0, _helpersJs._if)(this.schema.allOf && !this.isCollapsed)(_templateObject17, this.xOf(this.schema, 'allOf')), (0, _helpersJs._if)(this.schema.oneOf && !this.isCollapsed)(_templateObject17, this.xOf(this.schema, 'oneOf')), (0, _helpersJs._if)(this.schema.anyOf && !this.isCollapsed)(_templateObject17, this.xOf(this.schema, 'anyOf')), (0, _helpersJs._if)(!this.isCollapsed)(_templateObject29)) + '\n').replace(/\s*\n/g, '\n').replace(/(\<\!\-\-).+/g, '').trim();
+        (0, _helpersJs._if)(!this.isCollapsed && this.schema['enum'])(_templateObject16, this['enum'](this.schema, this.isCollapsed, this.open)), (0, _helpersJs._if)(this.schema.allOf && !this.isCollapsed)(_templateObject17, this.xOf(this.schema, 'allOf')), (0, _helpersJs._if)(this.schema.oneOf && !this.isCollapsed)(_templateObject17, this.xOf(this.schema, 'oneOf')), (0, _helpersJs._if)(this.schema.anyOf && !this.isCollapsed)(_templateObject17, this.xOf(this.schema, 'anyOf'))) + '\n').replace(/\s*\n/g, '\n').replace(/(\<\!\-\-).+/g, '').trim();
     }
 
     /*

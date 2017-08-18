@@ -59,14 +59,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "Pet.json"
+                                "$ref": "./Pet.json"
                             }
                         }
                     },
                     "default": {
                         "description": "unexpected error",
                         "schema": {
-                            "$ref": "Error.json"
+                            "$ref": "./Error.json"
                         }
                     }
                 }
@@ -81,7 +81,7 @@
                         "description": "Pet to add to the store",
                         "required": true,
                         "schema": {
-                            "$ref": "NewPet.json"
+                            "$ref": "./NewPet.json"
                         }
                     }
                 ],
@@ -89,13 +89,13 @@
                     "200": {
                         "description": "pet response",
                         "schema": {
-                            "$ref": "Pet.json"
+                            "$ref": "./Pet.json"
                         }
                     },
                     "default": {
                         "description": "unexpected error",
                         "schema": {
-                            "$ref": "Error.json"
+                            "$ref": "./Error.json"
                         }
                     }
                 }
@@ -119,13 +119,13 @@
                     "200": {
                         "description": "pet response",
                         "schema": {
-                            "$ref": "Pet.json"
+                            "$ref": "./Pet.json"
                         }
                     },
                     "default": {
                         "description": "unexpected error",
                         "schema": {
-                            "$ref": "Error.json"
+                            "$ref": "./Error.json"
                         }
                     }
                 }
@@ -150,7 +150,7 @@
                     "default": {
                         "description": "unexpected error",
                         "schema": {
-                            "$ref": "Error.json"
+                            "$ref": "./Error.json"
                         }
                     }
                 }
