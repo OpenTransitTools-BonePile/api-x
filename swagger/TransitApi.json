@@ -70,11 +70,14 @@
                     },
                     {
                         "$ref": "./parameters.json#/routeIdParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/dateParam"
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "list of available agencies",
+                        "description": "list of route directions for the given route in the system",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -91,6 +94,48 @@
                 }
             }
         },
+
+        "/route_stops/{route_id}/{agency_id}": {
+            "get": {
+                "description": "Returns all stops serving given route in the system",
+                "operationId": "list agencies",
+                "parameters": [
+                    {
+                        "$ref": "./parameters.json#/agencyIdReqParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/routeIdParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/dateParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/offsetParam"
+                    },
+                    {
+                        "$ref": "./parameters.json#/limitParam"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "list of available route directions",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "./RouteDirection.json"
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "./Error.json"
+                        }
+                    }
+                }
+            }
+        },
+
 
         "/routes": {
             "get": {
