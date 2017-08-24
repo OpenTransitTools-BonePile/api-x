@@ -31,3 +31,6 @@ do
    echo java -jar lib/swagger-codegen-cli.jar generate -i ${swagger_input} -l $l -o bindings/$l
    java -jar lib/swagger-codegen-cli.jar generate -i ${swagger_input} -l $l -o bindings/$l > codegen.log
 done
+
+cmd /c start bindings/html/index.html
+open bindings/html/index.html
