@@ -18,7 +18,10 @@
             "type": "integer"
         },
         "geometry": {
-            "$ref": "./geometry.json" }
+            "type": "array",
+            "items": {
+                "$ref": "./geometry.json"
+            }
         }
     }
 }
