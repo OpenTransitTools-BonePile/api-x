@@ -82,5 +82,22 @@
         "required": false,
         "type": "integer",
         "format": "int32"
+    },
+
+    "bbox": {
+        "name": "bbox",
+        "in": "query",
+        "description": "bounding box of 4 coordinates",
+        "FIXME": "unenforceable constraint: even number of elements in array",
+        "type": "array",
+        "items": { "type": "number" }
+    },
+    "coord": {
+        "name": "coord",
+        "in": "query",
+        "description": "XY coordinate",
+        "FIXME": "unenforceable constraint: even number of elements in array",
+        "type": "array",
+        "items": { "type": "number" }
     }
 }

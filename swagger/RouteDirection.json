@@ -22,6 +22,12 @@
             "items": {
                 "$ref": "./RouteStop.json"
             }
+        },
+        "geom": {
+            "$ref": "./geometry.json"
+        },
+        "bbox": {
+            "$ref": "./parameters.json#/bbox"
         }
     }
 }

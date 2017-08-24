@@ -17,11 +17,11 @@
         "sortOrder": {
             "type": "integer"
         },
-        "geometry": {
-            "type": "array",
-            "items": {
-                "$ref": "./geometry.json"
-            }
+        "geom": {
+            "$ref": "./geometry.json"
+        },
+        "bbox": {
+            "$ref": "./parameters.json#/bbox"
         }
     }
 }
