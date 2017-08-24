@@ -16,6 +16,9 @@
         },
         "sortOrder": {
             "type": "integer"
+        },
+        "geometry": {
+            "$ref": "./geometry.json" }
         }
     }
 }
