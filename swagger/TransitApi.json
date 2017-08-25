@@ -34,10 +34,10 @@
                 "operationId": "a1 list agencies",
                 "parameters": [
                     {
-                        "$ref": "./parameters.json#/offsetParam"
+                        "$ref": "./schema/parameters.json#/offsetParam"
                     },
                     {
-                        "$ref": "./parameters.json#/limitParam"
+                        "$ref": "./schema/parameters.json#/limitParam"
                     }
                 ],
                 "responses": {
@@ -46,14 +46,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "./Agency.json"
+                                "$ref": "./schema/Agency.json"
                             }
                         }
                     },
                     "default": {
                         "description": "unexpected error",
                         "schema": {
-                            "$ref": "./Error.json"
+                            "$ref": "./schema/Error.json"
                         }
                     }
                 }
@@ -67,16 +67,16 @@
                 "operationId": "r1 list routes",
                 "parameters": [
                     {
-                        "$ref": "./parameters.json#/agencyIdParam"
+                        "$ref": "./schema/parameters.json#/agencyIdParam"
                     },
                     {
-                        "$ref": "./parameters.json#/dateParam"
+                        "$ref": "./schema/parameters.json#/dateParam"
                     },
                     {
-                        "$ref": "./parameters.json#/offsetParam"
+                        "$ref": "./schema/parameters.json#/offsetParam"
                     },
                     {
-                        "$ref": "./parameters.json#/limitParam"
+                        "$ref": "./schema/parameters.json#/limitParam"
                     }
                 ],
                 "responses": {
@@ -85,14 +85,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "./Route.json"
+                                "$ref": "./schema/Route.json"
                             }
                         }
                     },
                     "default": {
                         "description": "unexpected error",
                         "schema": {
-                            "$ref": "./Error.json"
+                            "$ref": "./schema/Error.json"
                         }
                     }
                 }
@@ -105,13 +105,13 @@
                 "operationId": "r2 find a route(s) via route_id\ninclude agency_id to make make sure you have a unique route",
                 "parameters": [
                     {
-                        "$ref": "./parameters.json#/agencyIdParam"
+                        "$ref": "./schema/parameters.json#/agencyIdParam"
                     },
                     {
-                        "$ref": "./parameters.json#/routeIdParam"
+                        "$ref": "./schema/parameters.json#/routeIdParam"
                     },
                     {
-                        "$ref": "./parameters.json#/dateParam"
+                        "$ref": "./schema/parameters.json#/dateParam"
                     }
                 ],
                 "responses": {
@@ -120,14 +120,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "./Route.json"
+                                "$ref": "./schema/Route.json"
                             }
                         }
                     },
                     "default": {
                         "description": "unexpected error",
                         "schema": {
-                            "$ref": "./Error.json"
+                            "$ref": "./schema/Error.json"
                         }
                     }
                 }
@@ -141,13 +141,13 @@
                 "operationId": "r3 list agencies",
                 "parameters": [
                     {
-                        "$ref": "./parameters.json#/agencyIdReqParam"
+                        "$ref": "./schema/parameters.json#/agencyIdReqParam"
                     },
                     {
-                        "$ref": "./parameters.json#/routeIdParam"
+                        "$ref": "./schema/parameters.json#/routeIdParam"
                     },
                     {
-                        "$ref": "./parameters.json#/dateParam"
+                        "$ref": "./schema/parameters.json#/dateParam"
                     }
                 ],
                 "responses": {
@@ -156,14 +156,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "./RouteDirection.json"
+                                "$ref": "./schema/RouteDirection.json"
                             }
                         }
                     },
                     "default": {
                         "description": "unexpected error",
                         "schema": {
-                            "$ref": "./Error.json"
+                            "$ref": "./schema/Error.json"
                         }
                     }
                 }
@@ -176,19 +176,19 @@
                 "operationId": "r4: list stops serving a route (note that there's also route direction info attached)",
                 "parameters": [
                     {
-                        "$ref": "./parameters.json#/agencyIdReqParam"
+                        "$ref": "./schema/parameters.json#/agencyIdReqParam"
                     },
                     {
-                        "$ref": "./parameters.json#/routeIdParam"
+                        "$ref": "./schema/parameters.json#/routeIdParam"
                     },
                     {
-                        "$ref": "./parameters.json#/dateParam"
+                        "$ref": "./schema/parameters.json#/dateParam"
                     },
                     {
-                        "$ref": "./parameters.json#/offsetParam"
+                        "$ref": "./schema/parameters.json#/offsetParam"
                     },
                     {
-                        "$ref": "./parameters.json#/limitParam"
+                        "$ref": "./schema/parameters.json#/limitParam"
                     }
                 ],
                 "responses": {
@@ -197,14 +197,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "./RouteDirection.json"
+                                "$ref": "./schema/RouteDirection.json"
                             }
                         }
                     },
                     "default": {
                         "description": "unexpected error",
                         "schema": {
-                            "$ref": "./Error.json"
+                            "$ref": "./schema/Error.json"
                         }
                     }
                 }
@@ -218,16 +218,16 @@
                 "operationId": "s1: list stops",
                 "parameters": [
                     {
-                        "$ref": "./parameters.json#/agencyIdParam"
+                        "$ref": "./schema/parameters.json#/agencyIdParam"
                     },
                     {
-                        "$ref": "./parameters.json#/dateParam"
+                        "$ref": "./schema/parameters.json#/dateParam"
                     },
                     {
-                        "$ref": "./parameters.json#/offsetParam"
+                        "$ref": "./schema/parameters.json#/offsetParam"
                     },
                     {
-                        "$ref": "./parameters.json#/limitParam"
+                        "$ref": "./schema/parameters.json#/limitParam"
                     }
                 ],
                 "responses": {
@@ -236,14 +236,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "./Stop.json"
+                                "$ref": "./schema/Stop.json"
                             }
                         }
                     },
                     "default": {
                         "description": "unexpected error",
                         "schema": {
-                            "$ref": "./Error.json"
+                            "$ref": "./schema/Error.json"
                         }
                     }
                 }
@@ -255,13 +255,13 @@
                 "operationId": "s2: find stop(s) by stop_id\nneed to include agency_id to make make sure you have a unique stop",
                 "parameters": [
                     {
-                        "$ref": "./parameters.json#/agencyIdParam"
+                        "$ref": "./schema/parameters.json#/agencyIdParam"
                     },
                     {
-                        "$ref": "./parameters.json#/stopIdParam"
+                        "$ref": "./schema/parameters.json#/stopIdParam"
                     },
                     {
-                        "$ref": "./parameters.json#/dateParam"
+                        "$ref": "./schema/parameters.json#/dateParam"
                     }
                 ],
                 "responses": {
@@ -270,14 +270,14 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "./Stop.json"
+                                "$ref": "./schema/Stop.json"
                             }
                         }
                     },
                     "default": {
                         "description": "unexpected error",
                         "schema": {
-                            "$ref": "./Error.json"
+                            "$ref": "./schema/Error.json"
                         }
                     }
                 }
@@ -289,23 +289,23 @@
                 "operationId": "s3: find a single stop by stop_id and agency_id",
                 "parameters": [
                     {
-                        "$ref": "./parameters.json#/agencyIdReqParam"
+                        "$ref": "./schema/parameters.json#/agencyIdReqParam"
                     },
                     {
-                        "$ref": "./parameters.json#/stopIdParam"
+                        "$ref": "./schema/parameters.json#/stopIdParam"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "single stop response",
                         "schema": {
-                            "$ref": "./Stop.json"
+                            "$ref": "./schema/Stop.json"
                         }
                     },
                     "default": {
                         "description": "unexpected error",
                         "schema": {
-                            "$ref": "./Error.json"
+                            "$ref": "./schema/Error.json"
                         }
                     }
                 }

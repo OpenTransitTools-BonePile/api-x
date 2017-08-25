@@ -1,0 +1,78 @@
+<script src="tv4.js"></script>
+
+<script type="application/javascript">
+
+/** parses tv4's validity object ... from the tv4.validate*() methods */
+function msg(validObj, defVal="is valid")
+{
+    var retVal = defVal;
+    if(validObj && !validObj.valid)
+    {
+        if(validObj.error)
+            retVal = validObj.error;
+        else if(validObj.errors)
+        {
+            retVal = "not valid -- the following error(s)\n";
+            for(var i in validObj.errors)
+            {
+                var n = Number(i) + 1;
+                retVal = retVal + n + ". " + validObj.errors[i].message + "\n";
+            }
+        }
+        else
+            retVal = "something is not valid ... not sure what"
+    }
+    return retVal;
+}
+
+
+function test(schema, valid_data, bad_data)
+{
+    tv4.addSchema('#', schema);
+    var v1 = tv4.validateResult(valid_data, schema, true, true);
+    var v2 = tv4.validateResult(bad_data, schema, true, true);
+    // NOTE: think this validate method just returns true/false
+    // var v1 = tv4.validate(data1, schema, true, true)
+    // var v2 = tv4.validateMultiple(bad_data, schema, true, true);
+    console.log(schema);
+    console.log(v1);
+    console.log(v2);
+    alert("good data should pass: " + msg(v1));
+    alert("bad data should fail: " + msg(v2));
+}
+
+
+// note: this is outside of method / global variable, due to async grabbing of the data
+var agencies = null;
+fetch("/json-schema/agencies.json")
+    .then(response => response.json())
+    .then(json => (agencies = json));
+
+
+var stops = null;
+fetch("/json-schema/stops.json")
+    .then(response => response.json())
+    .then(json => (stops = json));
+
+
+function testAgencies()
+{
+    var valid_data = {'id':'TRIMET', 'name':"America's Best Transit Agency"};
+    var bad_data = {'id':'C-TRAN', 'bad-name':"Name field is required (plus we we can't have undeclared fields too)"};
+    test(agencies, valid_data, bad_data);
+}
+
+
+function testStops()
+{
+    var valid_data = {'stop_id':'2', 'name':"Best Transit Stop", 'agency':{'id':'TRIMET', 'name':"America's Best Transit Agency"}};
+    //var bad_data = {'stop_id':'3'};
+    var bad_data = {'stop_id':'3', 'agency':{'id':'C-TRAN', 'bad-name':"Name field missing"}};
+    test(stops, valid_data, bad_data);
+}
+</script>
+
+
+<a href="#" onclick="testAgencies()">Test Agencies Schema</a>
+<br/>
+<a href="#" onclick="testStops()">Test Stops Schema</a>
